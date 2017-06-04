@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.cricketscore.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#212121"
+    tools:context="com.example.android.cricketscore.MainActivity"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
 
     <LinearLayout
         android:id="@+id/main_score_linear_layout"
@@ -12,18 +24,48 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/teamname_text_view"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="TEAM A"
-            android:textAlignment="center" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/teamscore_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="@string/score"
+                android:textAlignment="center"
+                android:textColor="@color/homepg_txt_color" />
+
+            <TextView
+                android:id="@+id/teamname_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="@string/teama"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/homepg_txt_color"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/overs_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="@string/overs"
+                android:textAlignment="center"
+                android:textColor="@color/homepg_txt_color" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/teamname_text_view"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -39,10 +81,11 @@
                     android:layout_weight="1"
                     android:paddingLeft="50dp"
                     android:text="0"
+                    android:textColor="@color/homepg_txt_color"
                     android:textSize="32sp" />
 
                 <View
-                    android:layout_width="1dp"
+                    android:layout_width="2dp"
                     android:layout_height="match_parent"
                     android:background="@android:color/darker_gray" />
 
@@ -53,6 +96,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="50dp"
                     android:text="0"
+                    android:textColor="@color/homepg_txt_color"
                     android:textSize="32sp" />
 
             </LinearLayout>
@@ -61,6 +105,8 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/homepg_btn_pdng"
+                android:layout_marginRight="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
@@ -69,8 +115,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/round_shape_btn"
+                    android:onClick="subtractBall"
                     android:text="-"
-                    android:onClick="subtractBall"/>
+                    android:textColor="@android:color/holo_red_light"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/overs_text_view"
@@ -80,14 +129,18 @@
                     android:layout_weight="2"
                     android:text="0.0"
                     android:textAlignment="center"
+                    android:textColor="@color/homepg_txt_color"
+
                     android:textSize="30sp" />
 
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/round_shape_btn"
+                    android:onClick="addBall"
                     android:text="+"
-                    android:onClick="addBall"/>
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -100,13 +153,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Current RR "
+                android:text="@string/runrate"
+                android:textColor="@color/homepg_txt_color"
                 android:textSize="16sp" />
 
             <TextView
@@ -115,22 +170,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="0"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:textColor="@color/homepg_txt_color"
                 android:textSize="16sp"
-                android:text="Current Partnership " />
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/currpship_text_view"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="0(0)"
-                android:textSize="16sp"/>
 
         </LinearLayout>
 
@@ -142,23 +185,33 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="addOne"
                 android:text="+1"
-                android:onClick="addOne"/>
+                android:textStyle="bold" />
+
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="addTwo"
                 android:text="+2"
-                android:onClick="addTwo"/>
+                android:textStyle="bold" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="addThree"
                 android:text="+3"
-                android:onClick="addThree"/>
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -172,23 +225,32 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="addFour"
                 android:text="+4"
-                android:onClick="addFour"/>
+                android:textStyle="bold" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="addFive"
                 android:text="+5"
-                android:onClick="addFive"/>
+                android:textStyle="bold" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="addSix"
                 android:text="+6"
-                android:onClick="addSix"/>
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -201,26 +263,36 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:text="Wide"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="addExtra"
+                android:text="@string/wide"
                 android:textAllCaps="true"
-                android:onClick="addExtra"/>
+                android:textStyle="bold" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:text="No Ball"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="addExtra"
+                android:text="@string/noball"
                 android:textAllCaps="true"
-                android:onClick="addExtra"/>
+                android:textStyle="bold" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="subtractOne"
                 android:text="-1"
                 android:textAllCaps="true"
-                android:onClick="subtractOne"/>
+                android:textColor="@android:color/holo_red_light"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -233,103 +305,140 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:text="Dot ball"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="addDotBall"
+                android:text="@string/dotball"
                 android:textAllCaps="true"
-                android:onClick="addBall"/>
+                android:textStyle="bold" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:text="Wicket"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="addWicket"
+                android:text="@string/wicket"
                 android:textAllCaps="true"
-                android:onClick="addWicket"/>
+                android:textStyle="bold" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:text="Undo Wicket"
+                android:background="@drawable/round_shape_btn"
+                android:onClick="removeWicket"
+                android:text="@string/undowicket"
                 android:textAllCaps="true"
-                android:onClick="removeWicket"/>
+                android:textColor="@android:color/holo_red_light"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/reqscore_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:padding="16dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="Team A : "
+                android:text="@string/teama"
                 android:textAllCaps="true"
-                android:textSize="20sp"/>
+                android:textColor="@color/homepg_txt_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/saved_teama_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0/0"
-                android:textSize="20sp"
                 android:layout_weight="1"
-                />
+                android:text="0/0"
+                android:textColor="@color/homepg_txt_color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Overs : "
-                android:textSize="20sp"
                 android:layout_weight="1"
-                />
+                android:text="@string/overs"
+                android:textColor="@color/homepg_txt_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/saved_teama_overs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.0"
-                android:textSize="20sp"
                 android:layout_weight="1"
-                />
+                android:text="0.0"
+                android:textColor="@color/homepg_txt_color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
 
 
+        //this is just a horizontal line. If you are reading this after a long time, remember you
+        were a very bad coder at that time :-) Just joking. you are THE BEST!
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@android:color/darker_gray" />-->
+
     </LinearLayout>
 
 
-
-
     <LinearLayout
+        android:id="@+id/bottom_buttons_ll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_height="wrap_content">
 
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_weight="2"
-            android:text="Save Team A and reset"
+            android:layout_weight="1.5"
+            android:background="@drawable/round_shape_btn"
+            android:onClick="viewScoreCard"
+            android:text="@string/runsbyball"
             android:textAllCaps="true"
-            android:onClick="saveandreset"/>
+            android:textStyle="bold" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:text="Reset"
+            android:background="@drawable/round_shape_btn"
+            android:onClick="saveandreset"
+            android:text="@string/teamb"
             android:textAllCaps="true"
-            android:onClick="reset"/>
+            android:textStyle="bold" />
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_shape_btn"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:onClick="reset"
+            android:text="@string/reset"
+            android:textAllCaps="true"
+            android:textColor="@android:color/primary_text_dark"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="homepg_txt_color">#ffffff</color>
+    <color name="rnd_btn_clr">#d3d3d3</color>
+
 </resources>
