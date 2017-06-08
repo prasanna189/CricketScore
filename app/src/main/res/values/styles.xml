@@ -1,13 +1,45 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#d3d3d3</item>
-        <item name="colorPrimaryDark">#212121</item>
-        <item name="colorAccent">#F44336</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">#ffffff</item>
+        <item name="actionOverflowButtonStyle">@style/light3dots</item>
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:buttonStyle">@style/darkbutton</item>
+    </style>
+
+    <style name="darkbutton" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@android:color/holo_red_light</item>
+        <item name="android:background">@color/dark</item>
+    </style>
+
+    <style name="AppTheme.Dark" parent="Theme.AppCompat">
+
+        <item name="colorPrimary">@color/colorPrimaryInverse</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkInverse</item>
+        <item name="colorAccent">@color/dark</item>
+        <item name="actionOverflowButtonStyle">@style/dark3dots</item>
+        <!--<item name="android:windowLightStatusBar">true</item>-->
+        <item name="android:textColor">@color/light</item>
+        <item name="android:buttonStyle">@style/lightbutton</item>
+    </style>
+
+    <style name="lightbutton" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:background">@color/light</item>
+    </style>
+
+    <style name="dark3dots" parent="@style/Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/dark3dots</item>
+    </style>
+
+    <style name="light3dots" parent="@style/Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/white3dots</item>
     </style>
 
 
-
 </resources>
+

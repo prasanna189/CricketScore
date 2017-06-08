@@ -11,9 +11,11 @@ FeedbackUtils.java : http://blog.blundellapps.co.uk/tut-email-feedback-from-user
 
 package com.example.android.cricketscore;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     int overs = 0;
     int balls = 0;
     String ScoreCard = "";
+    Vibrator v;
+    int vibrate_duration=42;
 
     public void resetAllVariables()
     {
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         LinearLayout reqscore_ll = (LinearLayout) findViewById(R.id.reqscore_ll);
         reqscore_ll.setVisibility(View.INVISIBLE);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -70,16 +75,30 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 // User chose the "Settings" item, show the app settings UI...
+//                Intent intent = new Intent(this, SettingsActivity.class);
+//                startActivity(intent);
+                Toast.makeText(this, "This feature is under development :D",Toast.LENGTH_LONG).show();
                 return true;
 
             case R.id.action_help:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
+                Toast.makeText(this, "This feature is under development :D",Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.action_about:
+
+                Toast.makeText(this, "This feature is under development :D",Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.action_feedback:
+                FeedbackUtils.askForFeedback(MainActivity.this);
                 return true;
 
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
+                Toast.makeText(this,"Ran out of actions :D",Toast.LENGTH_LONG).show();
                 return super.onOptionsItemSelected(item);
 
         }
@@ -158,11 +177,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addDotBall(View view) {
+        v.vibrate(vibrate_duration);
         addBall(view);
         ScoreCard += String.valueOf(overs) + "." + String.valueOf(balls) + "  " + "Dot Ball\n";
     }
 
     public void addOne(View view) {
+        //starwars theme vibrate
+//        v.vibrate(new long[]{0, 500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500}, -1);
+        v.vibrate(vibrate_duration);
         score = score + 1;
         addBall(view);
         displayScore(score);
@@ -170,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addTwo(View view) {
+        v.vibrate(vibrate_duration);
         score = score + 2;
         addBall(view);
         displayScore(score);
@@ -177,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addThree(View view) {
+        v.vibrate(vibrate_duration);
         score = score + 3;
         addBall(view);
         displayScore(score);
@@ -184,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addFour(View view) {
+        v.vibrate(vibrate_duration);
         score = score + 4;
         addBall(view);
         displayScore(score);
@@ -191,6 +217,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addFive(View view) {
+        v.vibrate(vibrate_duration);
         score = score + 5;
         addBall(view);
         displayScore(score);
@@ -198,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addSix(View view) {
+        v.vibrate(vibrate_duration);
         score = score + 6;
         addBall(view);
         displayScore(score);
@@ -205,12 +233,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addExtra(View view) {
+        v.vibrate(vibrate_duration);
         score = score + 1;
         displayScore(score);
         ScoreCard += String.valueOf(overs) + "." + String.valueOf(balls) + "  " + "1 extra\n";
     }
 
     public void subtractOne(View view) {
+        v.vibrate(vibrate_duration);
         if (score > 0) {
             score = score - 1;
         }
@@ -219,6 +249,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addWicket(View view) {
+        v.vibrate(vibrate_duration);
         if (wickets == 9) {
             wickets = wickets + 1;
             addBall(view);
@@ -234,6 +265,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void removeWicket(View view) {
+        v.vibrate(vibrate_duration);
         if (wickets > 0) {
             wickets = wickets - 1;
             subtractBall(view);
@@ -246,10 +278,10 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, ScoreCardActivity.class);
         i.putExtra("ScoreCard", ScoreCard);
         startActivity(i);
-
     }
 
     public void saveandreset(View view) {
+        v.vibrate(vibrate_duration);
         LinearLayout reqscore_ll = (LinearLayout) findViewById(R.id.reqscore_ll);
         reqscore_ll.setVisibility(View.VISIBLE);
         displaySavedTeamAScore(score, wickets);
@@ -263,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void reset(View view) {
-
+        v.vibrate(vibrate_duration);
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

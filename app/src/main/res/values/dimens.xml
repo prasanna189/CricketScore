@@ -2,4 +2,10 @@
 <resources>
     <dimen name="homepg_btn_pdng">4dp</dimen>
     <dimen name="btn_corner_radius">8dp</dimen>
+    <dimen name="btn_pdng">12dp</dimen>
+    <dimen name="bottom_score_margin">8dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
 </resources>

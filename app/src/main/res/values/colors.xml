@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="homepg_txt_color">#ffffff</color>
-    <color name="rnd_btn_clr">#d3d3d3</color>
-
+    <color name="dark">#212121</color>
+    <color name="light">#d3d3d3</color>
+    <color name="colorPrimary">@color/dark</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">@android:color/holo_red_light</color>
+    <color name="colorPrimaryInverse">@color/light</color>
+    <color name="colorPrimaryDarkInverse">#E0E0E0</color>
+    <color name="colorAccentInverse">@android:color/holo_red_light</color>
+    <color name="homepg_alerttxt_color">@android:color/holo_red_light</color>
 </resources>

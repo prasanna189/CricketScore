@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#212121"
-    tools:context="com.example.android.cricketscore.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.android.cricketscore.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -15,7 +14,8 @@
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="?attr/colorAccent"/>
 
 
     <LinearLayout
@@ -36,8 +36,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:text="@string/score"
-                android:textAlignment="center"
-                android:textColor="@color/homepg_txt_color" />
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/teamname_text_view"
@@ -48,7 +47,6 @@
                 android:text="@string/teama"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="@color/homepg_txt_color"
                 android:textStyle="bold" />
 
             <TextView
@@ -58,14 +56,14 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:text="@string/overs"
-                android:textAlignment="center"
-                android:textColor="@color/homepg_txt_color" />
+                android:textAlignment="center" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -81,7 +79,6 @@
                     android:layout_weight="1"
                     android:paddingLeft="50dp"
                     android:text="0"
-                    android:textColor="@color/homepg_txt_color"
                     android:textSize="32sp" />
 
                 <View
@@ -96,7 +93,6 @@
                     android:layout_weight="1"
                     android:paddingLeft="50dp"
                     android:text="0"
-                    android:textColor="@color/homepg_txt_color"
                     android:textSize="32sp" />
 
             </LinearLayout>
@@ -105,20 +101,19 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/homepg_btn_pdng"
-                android:layout_marginRight="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
 
                 <Button
+                    android:id="@+id/button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/round_shape_btn"
                     android:onClick="subtractBall"
+                    android:padding="@dimen/btn_pdng"
                     android:text="-"
-                    android:textColor="@android:color/holo_red_light"
+                    android:textColor="@color/homepg_alerttxt_color"
                     android:textStyle="bold" />
 
                 <TextView
@@ -129,18 +124,17 @@
                     android:layout_weight="2"
                     android:text="0.0"
                     android:textAlignment="center"
-                    android:textColor="@color/homepg_txt_color"
-
                     android:textSize="30sp" />
 
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/round_shape_btn"
                     android:onClick="addBall"
+                    android:padding="@dimen/btn_pdng"
                     android:text="+"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"/>
 
 
             </LinearLayout>
@@ -161,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/runrate"
-                android:textColor="@color/homepg_txt_color"
+
                 android:textSize="16sp" />
 
             <TextView
@@ -170,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="0"
-                android:textColor="@color/homepg_txt_color"
+
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -179,7 +173,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/homepg_btn_pdng"
+            android:layout_marginRight="@dimen/homepg_btn_pdng">
 
 
             <Button
@@ -187,10 +183,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="addOne"
+                android:padding="@dimen/btn_pdng"
                 android:text="+1"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                />
 
 
             <Button
@@ -198,9 +196,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="addTwo"
+                android:padding="@dimen/btn_pdng"
                 android:text="+2"
+                android:textColor="#ffffff"
                 android:textStyle="bold" />
 
             <Button
@@ -208,9 +207,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="addThree"
+
+                android:padding="@dimen/btn_pdng"
                 android:text="+3"
+                android:textColor="#ffffff"
                 android:textStyle="bold" />
 
 
@@ -219,7 +220,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/homepg_btn_pdng"
+            android:layout_marginRight="@dimen/homepg_btn_pdng">
 
 
             <Button
@@ -227,9 +230,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="addFour"
+
+                android:padding="@dimen/btn_pdng"
                 android:text="+4"
+                android:textColor="#ffffff"
                 android:textStyle="bold" />
 
             <Button
@@ -237,9 +242,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="addFive"
+
+                android:padding="@dimen/btn_pdng"
                 android:text="+5"
+                android:textColor="#ffffff"
                 android:textStyle="bold" />
 
             <Button
@@ -247,9 +254,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="addSix"
+
+                android:padding="@dimen/btn_pdng"
                 android:text="+6"
+                android:textColor="#ffffff"
                 android:textStyle="bold" />
 
 
@@ -257,7 +266,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/homepg_btn_pdng"
+            android:layout_marginRight="@dimen/homepg_btn_pdng">
 
 
             <Button
@@ -265,10 +276,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="addExtra"
+
+                android:padding="@dimen/btn_pdng"
                 android:text="@string/wide"
                 android:textAllCaps="true"
+                android:textColor="#ffffff"
                 android:textStyle="bold" />
 
             <Button
@@ -276,10 +289,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="addExtra"
+
+                android:padding="@dimen/btn_pdng"
                 android:text="@string/noball"
                 android:textAllCaps="true"
+                android:textColor="#ffffff"
                 android:textStyle="bold" />
 
             <Button
@@ -287,11 +302,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="subtractOne"
+
+                android:padding="@dimen/btn_pdng"
                 android:text="-1"
                 android:textAllCaps="true"
-                android:textColor="@android:color/holo_red_light"
+                android:textColor="@color/homepg_alerttxt_color"
                 android:textStyle="bold" />
 
 
@@ -299,7 +315,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/homepg_btn_pdng"
+            android:layout_marginRight="@dimen/homepg_btn_pdng">
 
 
             <Button
@@ -307,10 +325,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="addDotBall"
+
+                android:padding="@dimen/btn_pdng"
                 android:text="@string/dotball"
                 android:textAllCaps="true"
+                android:textColor="#ffffff"
                 android:textStyle="bold" />
 
             <Button
@@ -318,10 +338,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="addWicket"
+
+                android:padding="@dimen/btn_pdng"
                 android:text="@string/wicket"
                 android:textAllCaps="true"
+                android:textColor="#ffffff"
                 android:textStyle="bold" />
 
             <Button
@@ -329,11 +351,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/homepg_btn_pdng"
                 android:layout_weight="1"
-                android:background="@drawable/round_shape_btn"
                 android:onClick="removeWicket"
+                android:padding="@dimen/btn_pdng"
                 android:text="@string/undowicket"
                 android:textAllCaps="true"
-                android:textColor="@android:color/holo_red_light"
+                android:textColor="@color/homepg_alerttxt_color"
                 android:textStyle="bold" />
 
 
@@ -343,44 +365,42 @@
             android:id="@+id/reqscore_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/homepg_btn_pdng"
+            android:layout_marginRight="@dimen/homepg_btn_pdng">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
                 android:text="@string/teama"
-                android:textAllCaps="true"
-                android:textColor="@color/homepg_txt_color"
-                android:textSize="20sp" />
+
+                android:textSize="20sp"
+                android:layout_margin="@dimen/bottom_score_margin"/>
 
             <TextView
                 android:id="@+id/saved_teama_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0/0"
-                android:textColor="@color/homepg_txt_color"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="@dimen/bottom_score_margin"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/overs"
-                android:textColor="@color/homepg_txt_color"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_margin="@dimen/bottom_score_margin"/>
 
             <TextView
                 android:id="@+id/saved_teama_overs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0.0"
-                android:textColor="@color/homepg_txt_color"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="@dimen/bottom_score_margin"/>
 
 
         </LinearLayout>
@@ -399,44 +419,49 @@
     <LinearLayout
         android:id="@+id/bottom_buttons_ll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/homepg_btn_pdng"
+        android:layout_marginRight="@dimen/homepg_btn_pdng">
 
 
         <Button
+            android:id="@+id/button2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/homepg_btn_pdng"
             android:layout_weight="1.5"
-            android:background="@drawable/round_shape_btn"
             android:onClick="viewScoreCard"
+            android:padding="@dimen/btn_pdng"
             android:text="@string/runsbyball"
             android:textAllCaps="true"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#ffffff"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/round_shape_btn"
             android:onClick="saveandreset"
+            android:padding="@dimen/btn_pdng"
             android:text="@string/teamb"
             android:textAllCaps="true"
-            android:textStyle="bold" />
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/homepg_btn_pdng"/>
 
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/round_shape_btn"
-            android:backgroundTint="@android:color/holo_red_light"
+            android:backgroundTint="@color/homepg_alerttxt_color"
             android:onClick="reset"
+            android:padding="@dimen/btn_pdng"
             android:text="@string/reset"
             android:textAllCaps="true"
             android:textColor="@android:color/primary_text_dark"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_margin="@dimen/homepg_btn_pdng"/>
 
     </LinearLayout>
 
